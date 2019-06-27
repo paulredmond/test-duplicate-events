@@ -2,10 +2,16 @@
 
 namespace App\Providers;
 
+use Illuminate\Foundation\Support\Providers\EventServiceProvider;
 use Illuminate\Support\ServiceProvider;
 
-class ExampleProvider extends ServiceProvider
+class ExampleProvider extends EventServiceProvider
 {
+    public function shouldDiscoverEvents()
+    {
+        return true;
+    }
+
     /**
      * Register services.
      *
