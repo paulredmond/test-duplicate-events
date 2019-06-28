@@ -2,7 +2,7 @@
 
 __Note: using multiple event providers in general feels weird to me; coupled with discovery it is a weird, complex edge-case and I'd probably wouldn't use discovery with multiple event handlers IMHO.__
 
-This is mostly to demonstrate how to `event:list` can output duplicate events if multiple event providers are discovering the same paths. It's not necessarily anything wrong with the framework code, however, the cache seems odd after introducing the provider array keys.
+This is mostly to demonstrate how to `event:list` can output duplicate events if multiple event providers are discovering the same paths. It's not necessarily anything wrong with the framework code but perhaps confusing to unravel.
 
 It's not very clear that if you are using multiple providers that your additional providers will list out duplicate events unless you are discovering a different path than the `EventServiceProvider`.
 
