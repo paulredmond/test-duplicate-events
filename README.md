@@ -6,17 +6,15 @@ This is mostly to demonstrate how to `event:list` can output duplicate events if
 
 It's not very clear that if you are using multiple providers that your additional providers will list out duplicate events unless you are discovering a different path than the `EventServiceProvider`.
 
-This is an edge case for projects using both event discovery and multiple event providers.
-
 ## Details
 
 There are a few separate considerations:
 
-1. Since PRs and issues have been made to address using multiple event providers, it may not be clear why people are seeing duplicate events in `event:list`.
+1. Although PRs and issues have been made to address using multiple event providers, it still may not be clear why people are seeing duplicate events in `event:list` even if the provider doesn't subscribe any events.
 
-2. The `event:cache` and `event:list` now use providers as array keys, but if using discovery in multiple providers `event:list` doesn't necessarily mean that the events are subscribed appropriately. This can be confusing just because although these event listeners are listed in the output, they might not actually register any listeners.
+2. The `event:cache` and `event:list` now use providers as array keys, but if using discovery in multiple providers `event:list` doesn't necessarily mean that the events are subscribed appropriately. This can be confusing just because although these event listeners are listed in the output, they might not actually register any listeners. I guess that's probably more onus on those wanting to use mutiple event providers.
 
-3. The `event:cache` method caches the discovered handlers with keys for each provider that extends Laravel's `EventServiceProvider`. The implementation is fine but wanted to point out that again, the file doesn't guarantee that a listener is ever created in the other service providers besides `App\Providers\EventServiceProvider`.
+3. The `event:cache` method caches the discovered handlers with keys for each provider that extends Laravel's `EventServiceProvider`. The implementation is fine but wanted to point out that again, the file doesn't guarantee that a listener is ever created in the other service providers besides `App\Providers\EventServiceProvider`. Again, this might be more confusion than any fix needed.
 
 ## Steps to Reproduce / Experiment
 
