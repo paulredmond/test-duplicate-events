@@ -30,9 +30,7 @@ class ExampleProvider extends EventServiceProvider
      */
     public function boot()
     {
-        // If this is called on any additional service provider extending the framework's EventServiceProvider
-        // duplicate listeners are registered per provider that are doing discovery...
-        // @see \Illuminate\Foundation\Support\Providers\EventServiceProvider::boot()
-        parent::boot();
+        // This service provider needs to subscribe any discovered listeners...
+        // The discovered listeners might be in `artisan event:list` but not actually have any event subscriptions.
     }
 }
