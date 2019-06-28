@@ -14,7 +14,7 @@ php artisan debug:listeners
 
 There are a few separate issues here:
 
-1. Event when this feature was released in `v5.8.9` multiple providers extending `\Illuminate\Foundation\Support\Providers\EventServiceProvider` duplicate listeners for me when using discovery if the additional event service provider classes call the `parent::boot()` method. This only affects projects using discovery with multiple event providers.
+1. Even when this feature was released in `v5.8.9` multiple providers extending `\Illuminate\Foundation\Support\Providers\EventServiceProvider` duplicate listeners for me when using discovery if the additional event service provider classes call the `parent::boot()` method. This only affects projects using discovery with multiple event providers.
 
 You can mess around with seeing the duplicated handlers by updating `composer.json` to `"laravel/framework": "5.8.9",` and running `composer update laravel/framework`:
 
